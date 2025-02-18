@@ -1,0 +1,64 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+  padding: 10px;
+  margin-right: 5px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-weight: 600;
+}
+
+.button:hover {
+  background-color: var(--bgpanel-h);
+}
+
+.dropdownMenu {
+  position: absolute;
+  z-index: 100;
+  width: 12rem; /* w-48 */
+  background-color: var(--bgpanel);
+  border: 1px solid var(--bgpanel-b);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  font-size: 18px;
+  color: #929292;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.option:hover {
+  background-color: var(--bgpanel-h);
+  color: #fff;
+  opacity: 80%;
+}
+
+.selected {
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--bgpanel-h);
+}
+
+.checkIcon {
+  width: 1rem;
+  height: 1rem;
+  color: #fff;
+}

@@ -1,0 +1,92 @@
+.deleteIcon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 4px;
+  transition: opacity 0.3s ease, background 0.3s ease;
+  z-index: 3;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.item:hover .deleteIcon {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.deleteIcon:hover {
+  background: rgba(255, 0, 0, 0.7);
+}
+
+.btn {
+  padding: 8px 16px;
+  margin: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--bgpanel-b);
+  transition: 0.3s all;
+}
+.deleteBtn {
+  background: rgba(255, 0, 0, 0.7);
+}
+.deleteBtn:hover {
+  background: rgba(255, 0, 0, 0.9);
+}
+
+.cancelBtn {
+  background-color: #313131;
+}
+.cancelBtn:hover {
+  background-color: #494949;
+}
+.popupTxt {
+  font-size: 22px;
+}
+
+
+.shareContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 400px;
+}
+.shareContainer > input {
+  margin-top: 10px;
+  width: 200px;
+  background: none;
+  border: 1px solid var(--bgpanel-b);
+  border-radius: 10px;
+  transition: background-color 0.2s;
+  padding: 10px 12px;
+  font-size: 18px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.shareContainer > textarea  {
+  background: none;
+  border: 1px solid var(--bgpanel-b);
+  border-radius: 10px;
+  transition: background-color 0.2s;
+  padding: 5px 12px;
+  font-size: 14px;
+  height: 100px;
+}
+
+.copyBtn {
+  background-color: rgb(29, 31, 167);
+}
+.copyBtn:hover {
+  background-color: rgb(45, 47, 196);
+}
+
+
+@media (max-width: 500px) {
+  .shareContainer > textarea  {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

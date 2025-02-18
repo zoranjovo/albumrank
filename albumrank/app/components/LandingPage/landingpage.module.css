@@ -1,0 +1,34 @@
+.container {
+  justify-content: center;
+  text-align: center;
+}
+
+.txtContainer {
+  margin-top: 100px;
+}
+.txtContainer > h1 {
+  font-size: 30px;
+  font-weight: 600;
+  animation: floatY 1s infinite alternate ease-in-out;
+}
+.txtContainer > h2 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+@keyframes floatY {
+  0% { transform: translateY(-10px); }
+  100% { transform: translateY(10px); }
+}
+
+
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10vh;
+}
+.iconContainer > img {
+  width: calc(200px + 8vw);
+  height: auto;
+  opacity: 0.9;
+}

@@ -1,0 +1,43 @@
+.fake {
+  display: flex;
+  align-items: end;
+  height: 80px;
+}
+
+.container {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  background: var(--bgpanel);
+  border: 1px solid var(--bgpanel-b);
+  border-radius: 10px;
+  z-index: 200;
+}
+
+.container > input {
+  width: 700px;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  transition: background-color 0.2s;
+  padding: 10px 12px;
+  font-size: 18px;
+}
+.container > input:hover {
+  background-color: var(--bgpanel-h);
+}
+
+
+
+@media (max-width: 950px) {
+  .container {
+    width: 90%;
+  }
+  
+  .container > input {
+    width: 100%;
+  }
+}

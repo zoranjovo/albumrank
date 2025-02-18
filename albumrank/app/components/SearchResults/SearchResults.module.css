@@ -1,0 +1,104 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  animation-duration: 0.3s;
+}
+
+.container {
+  width: 500px;
+  margin-top: 80px;
+  max-height: 80vh;
+  overflow-y: scroll;
+  border-radius: 10px;
+  border: 1px solid var(--bgpanel-b);
+  background-color: var(--bgpanel);
+  opacity: 0%;
+  transition: all 0.2s;
+  transform: translateY(5px);
+  position: absolute;
+  pointer-events: none;
+  z-index: 250;
+}
+
+.containeropen {
+  opacity: 100%;
+  transform: translateY(0px);
+  pointer-events: all;
+}
+
+.resultItem {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  transition: 0.2s;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.resultItem:hover {
+  transform: translateY(-3px);
+  background-color: var(--bgpanel-h);
+}
+.resultItem > p {
+  font-size: 24px;
+  padding: 10px 20px;
+}
+.img {
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+
+
+@media (max-width: 650px) {
+  .container {
+    width: 90%;
+    margin-left: 5%;
+  }
+  .resultItem > p {
+    font-size: 20px;
+    padding: 5px 10px;
+  }
+}
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-fill-mode: forwards;
+  pointer-events: all;
+}
+
+.fadeOut {
+  animation-name: fadeOut;
+  animation-fill-mode: forwards;
+  pointer-events: none;
+}
