@@ -39,6 +39,4 @@ yarn-error.log*
 next-env.d.ts
 
 # cache db files
-cache.db
-cache.db-shm
-cache.db-wal
+tmp/
