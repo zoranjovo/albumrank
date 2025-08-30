@@ -154,7 +154,6 @@ function Rating({ mode, setMode, chosenItem, setChosenItem }: Props){
     draggedElement.current = e.currentTarget;
     setDraggedItem(item);
     
-    // Add visual feedback
     if (draggedElement.current) {
       draggedElement.current.style.opacity = '0.5';
       draggedElement.current.style.transform = 'scale(1.02)';
@@ -164,12 +163,11 @@ function Rating({ mode, setMode, chosenItem, setChosenItem }: Props){
   const handleTouchMove = (e: any) => {
     if (!draggedElement.current) return;
 
-    e.preventDefault(); // Prevent scrolling while dragging
+    e.preventDefault();
     
     const touch = e.touches[0];
     const elements = document.elementsFromPoint(touch.clientX, touch.clientY);
     
-    // Find the droppable element under the touch point
     const droppableElement = elements.find(el => 
       el.classList.contains(styles.item) && el !== draggedElement.current
     );
@@ -183,11 +181,9 @@ function Rating({ mode, setMode, chosenItem, setChosenItem }: Props){
   const handleTouchEnd = (e: any) => {
     if (!draggedElement.current) return;
 
-    // Reset styles
     draggedElement.current.style.opacity = '1';
     draggedElement.current.style.transform = 'none';
 
-    // Get the element under the final touch position
     const touch = e.changedTouches[0];
     const elements = document.elementsFromPoint(touch.clientX, touch.clientY);
     const droppableElement = elements.find(el => 
@@ -199,7 +195,6 @@ function Rating({ mode, setMode, chosenItem, setChosenItem }: Props){
       reorderItems(targetId);
     }
 
-    // Reset states
     setDraggedItem(null);
     setDragOverId(null);
     draggedElement.current = null;

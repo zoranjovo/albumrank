@@ -38,10 +38,8 @@ export async function GET(req: Request) {
       const items = response
         .map((item: any) => {
           const releaseDateObject = new Date(releaseDate);
-          //const day = releaseDate.getDate();
           const month = releaseDateObject.toLocaleString('default', { month: 'long' });
           const year = releaseDateObject.getFullYear();
-          //const formattedDate = `${day}${getDateSuffix(day)} ${month} ${year}`;
           const formattedDate = `${month} ${year}`;
 
           return {
@@ -75,10 +73,8 @@ export async function GET(req: Request) {
           const releaseDate = item.release_date;
           
           const releaseDateObject = new Date(releaseDate);
-          //const day = releaseDate.getDate();
           const month = releaseDateObject.toLocaleString('default', { month: 'long' });
           const year = releaseDateObject.getFullYear();
-          //const formattedDate = `${day}${getDateSuffix(day)} ${month} ${year}`;
           const formattedDate = `${month} ${year}`;
 
           return {

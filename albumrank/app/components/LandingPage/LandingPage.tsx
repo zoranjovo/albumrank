@@ -14,14 +14,6 @@ function LandingPage({ chosenItem }: Props){
           <h1>^</h1>
           <h2>Search to Begin</h2>
         </div>
-        {/* <div className={ styles.iconContainer}>
-          <Image
-            width={ 512 }
-            height={ 512 }
-            src={ '/albumrank.png' }
-            alt={ 'album rank icon'}
-          />
-        </div> */}
       </div>
     );
   }
