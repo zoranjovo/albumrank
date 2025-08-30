@@ -27,7 +27,6 @@ function SearchBar({ mode, setMode, setSearchResults, setIsSearchResultsOpen }: 
       const response = await fetch(`/api/search?type=${searchMode.toLowerCase()}&query=${encodeURIComponent(query)}`);
       if(response.status === 200){
         const data = await response.json();
-        console.log(data)
         setSearchResults(data.data);
         setIsSearchResultsOpen(true);
       } else if(response.status === 429){
