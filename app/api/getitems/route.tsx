@@ -2,13 +2,8 @@ import { NextResponse } from 'next/server';
 import axios from 'axios';
 import { getAccessToken } from '@/app/util/Api';
 import { fetchAllSpotifyItems } from './fetching';
-import { isRateLimited } from '../rateLimiter';
-import { getFromCache, saveToCache } from '../cache';
 
 export async function GET(req: Request) {
-  const ip = req.headers.get('x-forwarded-for') || 'localhost';
-  if(isRateLimited(ip)){ return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 }); }
-
   const { searchParams } = new URL(req.url);
   const id = searchParams.get('id');
   const type = searchParams.get('type');
@@ -16,10 +11,6 @@ export async function GET(req: Request) {
 
   if(!id){ return NextResponse.json({ error: 'ID is required.' }, { status: 400 }); }
   if(!type || !validTypes.includes(type)){ return NextResponse.json({ error: 'Type is invalid.' }, { status: 400 }); }
-
-  const queryKey = JSON.stringify([id, type]);
-  const cachedData = getFromCache(queryKey);
-  if(cachedData){ return NextResponse.json({ payload: cachedData, cached: true }); }
 
   let suffix = 'albums'
   if(type == 'album'){ suffix = 'tracks'; }
@@ -57,7 +48,6 @@ export async function GET(req: Request) {
           },
           items
         }
-        saveToCache(queryKey, payload);
         return NextResponse.json({ payload });
     }
 
@@ -93,7 +83,6 @@ export async function GET(req: Request) {
           },
           items
         }
-        saveToCache(queryKey, payload);
         return NextResponse.json({ payload });
     }
   } catch (error) {
